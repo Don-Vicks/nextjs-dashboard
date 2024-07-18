@@ -1,7 +1,11 @@
 import React from 'react'
+import { fetchFilteredCustomers } from '@/app/lib/data';
+import CustomersTable from '@/app/ui/customers/table';
 
-export default function CustomerPage() {
+export default async function CustomerPage() {
+  const customer = await fetchFilteredCustomers();
+
   return (
-    <div>Customer Page</div>
+    <CustomersTable customers={customer}/>
   )
 }
